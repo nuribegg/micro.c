@@ -208,7 +208,7 @@ void boot_ascii() {
     print("| '_ ` _ \\| |/ __| '__/ _ \\ \n");
     print("| | | | | | | (__| | | (_) |\n");
     print("|_| |_| |_|_|\\___|_|  \\___/ \n");
-    print("Made with <3 by @turkishrevolt on TikTok.\n");
+    print("Made with <3 by @kaffeinedev on TikTok.\n");
     print("");
 }
 
