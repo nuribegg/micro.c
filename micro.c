@@ -24,36 +24,8 @@ typedef unsigned short u16;
 static int row = 0;
 static int col = 0;
 
-static void putc(char c)
-{
-    if (c == '\n') {
-        col = 0;
-        row++;
-        return;
-    }
-
-    if (c == '\b') {
-        if (col > 0) {
-            col--;
-            VGA[row * 80 + col] = 0x0700;
-        }
-        return;
-    }
-
-    VGA[row * 80 + col] = 0x0700 | c;
-    col++;
-
-    if (col >= 80) {
-        col = 0;
-        row++;
-    }
-}
-
-static void print(const char *s)
-{
-    while (*s)
-        putc(*s++);
-}
+#include "include/putc.c"
+#include "include/print.c"
 
 static void clear(void)
 {
@@ -229,7 +201,7 @@ void setup_wiz_microos_choices() {
     print("Your choice: ");
 
     readline(choice, 128);
-    
+
     if (strcmp(choice, "1") == 0) {
         clear();
         setup_wiz_microos();
